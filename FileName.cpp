@@ -30,7 +30,7 @@ int main() {
 
     std::mutex outputMutex;
 
-#pragma omp parallel num_threads(actualThreads)
+#pragma omp parallel num_threads(actualThreads) reduction(+:totalSum)
     {
         int rank = omp_get_thread_num();
         int sum = 0;
